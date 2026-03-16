@@ -1,30 +1,89 @@
 # Fundamentals of Programming 2026
 Berry Boessenkool;
-2025-10-29, 18:04
+2026-03-16
 
-This is a github task in the course
+This is a markdown / github task in the course
 [FP26](https://open.hpi.de/courses/hpi-dh-fprog2026).  
-*it is fine to not understand the code at this point - we’ll get to that
-throughout the course :)*
+*It is fine to not understand the R/Python code at this point - we’ll
+get to that throughout the course :)*
 
-- Please follow the [installation
-  guide](https://github.com/brry/fpsetup#software-installation-guide)
-  first.
+- Please first read the i.2 homework slide and follow the [installation
+  guide](https://github.com/brry/fpsetup#software-installation-guide).
 - Please **pull** before you work and again before you **push**!!
 - Include the generated md file (+ image files) in your commit.
+- Write an informative commit message.
 
-Ideas for the homework:
+## Homework
 
-- improve a code chunk (meaningful adaptation)
-- make one single code chunk foldable (folded by default). But leave all
-  other chunks alone
-- suppress the output of updateRdwd with a chunk option
-- silence the `dataDWD` call (the function has an argument for that)
-- improve the python output to not be split up
+Implement one of these ideas, following the instructions above. You may
+create your own fork (or second copy) where you implement many options
+to learn, but each student should have some options available.
+
+- change the date format in the yaml header to include HH:mm after the
+  day (*this one should be implemented early, please*)
+- add checkboxes for ideas that are implemented
+- add some reasonable markdown code (e.g. strikethrough, link,
+  reference, bold, cursive, …)
+- in Rstudio: change the chunk output location setting to “console”
+  (changes yaml header)
+- make one single code chunk foldable (folded by default); leave all
+  other chunks as is
+- suppress the output of `updateRdwd` with a chunk option
+- improve the python output to not be split up (with a chunk option)
+- add a `knitr::kable` with a small subset of the dataset
+- format a plot as actual figures and add labels (chunk options)
+- elsewehere in the text, add a reference to that figure
+- change the date to the rendering time (note why in the commit - there
+  is one particular reason)
+- add a table of contents (yaml header option)
+- use a Quarto callout block (e.g. `:::{.callout-note}`) to highlight an
+  interesting finding
+- add cross-references between sections using `@sec-` labels
+- set a custom theme or highlight style in the yaml header
+- use a meaningful multi-line commit message (subject + body) for a
+  commit
+- change some other document setting you like from
+  [quarto.org](https://quarto.org/)
+- add a footnote somewhere in the text
+- add an explanation why the code chunks in this particular document
+  should not be cached
+- add an image (e.g. a screenshot or the DWD logo) with alt text
+- use a blockquote (`>`) for a fun or relevant quote about weather/data
+- set global execution options in the yaml (e.g. `warning: false`)
+  instead of per-chunk
+- add `fig-width` / `fig-height` as global defaults in the yaml
+- use a tabset (`:::{.panel-tabset}`) to organise sections or outputs
+- add margin content with `column: margin` on a chunk or text block
+- use code annotation (`# <1>` style) to explain a line in a chunk
+  without touching the code logic
+- enable `embed-resources: true` so the HTML renders as a single
+  self-contained file
+- add a `.gitignore` entry for irrelevant output folders
+  (e.g. `*_cache/`)
 - revert a change someone made that you dislike (commit/PR discussion
   welcome!)
-- add some reasonable markdown code (like strikethrough for ideas that
-  are implemented)
+
+<details>
+
+<summary>
+
+📝 Alternative ideas
+</summary>
+
+- tag a version with `git tag` after a meaningful milestone
+- improve a code chunk (some meaningful adaptation)
+
+</details>
+
+> [!TIP]
+>
+> ### Alternative ideas
+>
+> These suggestions are less applicable to the document at hand or not
+> so interesting for learning the markdown basics
+>
+> - tag a version with `git tag` after a meaningful milestone
+> - improve a code chunk (some meaningful adaptation)
 
 ## Check package availability
 
@@ -38,25 +97,17 @@ if(!requireNamespace("rdwd", quietly=TRUE))
 rdwd::updateRdwd()
 ```
 
-    rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.4 (2025-10-20)
+    rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.8 (2025-12-20)
 
 ## Get weather data
 
-download recent weather data using
-[rdwd](https://bookdown.org/brry/rdwd/)
+download recent weather data using [rdwd](https://brry.github.io/rdwd/)
 
 ``` r
 library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
-clim <- dataDWD(link, varnames=TRUE, force=24)
+clim <- dataDWD(link, varnames=TRUE, force=24, quiet=TRUE)
 ```
-
-    .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error -> process_group -> call_block -> block_exec -> evaluate -> evaluate::evaluate -> withRestarts -> withRestartList -> withOneRestart -> doWithOneRestart -> withRestartList -> withOneRestart -> doWithOneRestart -> with_handlers -> eval -> eval -> dataDWD -> dirDWD: adding to directory 'C:/Users/Berry/AppData/Local/R/cache/R/rdwd'
-
-    .main -> execute -> knitr::knit -> process_file -> xfun:::handle_error -> process_group -> call_block -> block_exec -> evaluate -> evaluate::evaluate -> withRestarts -> withRestartList -> withOneRestart -> doWithOneRestart -> withRestartList -> withOneRestart -> doWithOneRestart -> with_handlers -> eval -> eval -> dataDWD: 1 file already existing and not downloaded again:  'daily_kl_recent_tageswerte_KL_03987_akt.zip'
-    Now downloading 0 files...
-
-    Reading 1 file with readDWD.data() and fread=TRUE ...
 
 ## Visualise recent temperature
 
@@ -96,11 +147,11 @@ print(temp_stats)
 ```
 
     count    550.000000
-    mean      13.028000
-    std        7.067967
-    min       -4.800000
-    25%        8.100000
-    50%       14.150000
-    75%       18.700000
+    mean       8.856182
+    std        7.419554
+    min       -8.000000
+    25%        3.400000
+    50%        8.800000
+    75%       14.600000
     max       29.200000
     Name: TMK.Lufttemperatur, dtype: float64
