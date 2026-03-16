@@ -1,0 +1,105 @@
+---
+title: "Fundamentals of Programming 2026"
+author: "Berry Boessenkool; "
+date: last-modified
+format: html
+---
+
+This is a markdown / github task in the course [FP26](https://open.hpi.de/courses/hpi-dh-fprog2026).  
+*It is fine to not understand the R/Python code at this point - we'll get to that throughout the course :)*  
+
+- Please first read the i.2 homework slide and follow the [installation guide](https://github.com/brry/fpsetup#software-installation-guide).
+- Please **pull** before you work and again before you **push**!!
+- Include the generated md file (+ image files) in your commit.
+- Write an informative commit message.
+
+## Homework
+
+Implement one of these ideas, following the instructions above.  
+You may also create your own fork (or second copy) where you implement many options to learn, but each student should have some options available.  
+
+- change the date format in the yaml header to include HH:mm after the day (*this one should be implemented early, please*)
+- add checkboxes for ideas that are implemented
+- add some reasonable markdown code (e.g. strikethrough, link, reference, bold, cursive, ...)
+- in Rstudio: change the chunk output location setting to "console" (changes yaml header)
+- make one single code chunk foldable (folded by default); leave all other chunks as is
+- suppress the output of `updateRdwd` with a chunk option
+- improve the python output to not be split up (with a chunk option)
+- add a `knitr::kable` with a small subset of the dataset
+- format a plot as actual figures and add labels (chunk options)
+- elsewehere in the text, add a reference to that figure
+- change the date to the rendering time (note why in the commit - there is one particular reason)
+- add a table of contents (yaml header option)
+- add cross-references between sections using `@sec-` labels
+- set a custom theme or highlight style in the yaml header
+- use a meaningful multi-line commit message (subject + body) for a commit
+- change some other document setting you like from [quarto.org](https://quarto.org/)
+- add a footnote somewhere in the text
+- add an explanation why the code chunks in this particular document should not be cached
+- add an image (e.g. a screenshot or the DWD logo) with alt text
+- use a blockquote (`>`) for a fun or relevant quote about weather/data
+- set global execution options in the yaml (e.g. `warning: false`) instead of per-chunk
+- add `fig-width` / `fig-height` as global defaults in the yaml
+- use a tabset (`:::{.panel-tabset}`) to organise sections or outputs
+- add margin content with `column: margin` on a chunk or text block
+- use code annotation (`# <1>` style) to explain a line in a chunk without touching the code logic
+- revert a change someone made that you dislike (commit/PR discussion welcome!)
+- use a collapsed Quarto callout block for further info (in experiments.qmd)
+
+::: {.callout-tip collapse="true"}
+## click here for further ideas
+
+These suggestions are less applicable to the document at hand or not so interesting for learning the markdown basics
+
+- tag a version with `git tag` after a meaningful milestone
+- add a `.gitignore` entry for irrelevant output folders (e.g. `*_cache/`)
+- enable `embed-resources: true` so the HTML renders as a single self-contained file
+- improve a code chunk with some meaningful adaptation (is not markdown related)
+:::
+
+## Check package availability
+
+```{python, modules}
+import matplotlib, pandas
+```
+
+```{r, packages} 
+if(!requireNamespace("rdwd", quietly=TRUE))
+	install.packages("rdwd")
+rdwd::updateRdwd()
+```
+
+## Get weather data
+
+download recent weather data using [rdwd](https://brry.github.io/rdwd/)
+
+```{r, get_weather_data}
+library(rdwd)
+link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
+clim <- dataDWD(link, varnames=TRUE, force=24, quiet=TRUE)
+```
+
+## Visualise recent temperature
+
+```{r, plot_clim}
+plotDWD(clim, "TMK.Lufttemperatur", main=range(clim$MESS_DATUM))
+```
+
+## Transfer to Python
+
+```{python, histograms, results="hide"}
+clim_py = r.clim
+print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
+clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
+clim_py.hist(figsize=(20, 16), bins=5)
+```
+
+## Summary statistics
+
+```{python, temperature_stats}
+# Calculate and display some basic statistics
+print("\n=== Summary Statistics for Temperature ===")
+temp_stats = clim_py['TMK.Lufttemperatur'].describe()
+print(temp_stats)
+```
+
