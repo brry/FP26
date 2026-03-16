@@ -117,17 +117,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <em>It is fine to not understand the R/Python code at this point - we’ll get to that throughout the course :)</em></p>
 <ul>
 <li>Please first read the i.2 homework slide and follow the <a href="https://github.com/brry/fpsetup#software-installation-guide">installation guide</a>.</li>
-<li>Please <strong>pull</strong> before you work and again before you <strong>push</strong>!!</li>
+<li>Please <strong>pull</strong> before you work and again before you <strong>push</strong>!! We want to reduce version conflicts as much as possible.</li>
 <li>Include the generated md file (+ image files) in your commit.</li>
 <li>Write an informative commit message.</li>
+<li><code>Pull</code> before you <code>push</code> your commit. Yes, this instruction is repetitive. Experience teaches it is necessary. DO NOT UPLOAD YOUR CHANGES WITHOUT FIRST UPDATING THE CODE!</li>
 </ul>
 <section id="homework" class="level2">
 <h2 class="anchored" data-anchor-id="homework">Homework</h2>
 <p>Implement one of these ideas, following the instructions above.<br>
-You may also create your own fork (or second copy) where you implement many options to learn, but each student should have some options available.</p>
+To learn more markdown, create a copy of the file in which you can implement many/all ideas. Each student should have some options available, so don’t push those changes.</p>
 <ul>
 <li>change the date format in the yaml header to include HH:mm after the day (<em>this one should be implemented early, please</em>)</li>
-<li>add checkboxes for ideas that are implemented</li>
+<li>change this bullet list to checkboxes for ideas that are implemented</li>
 <li>add some reasonable markdown code (e.g.&nbsp;strikethrough, link, reference, bold, cursive, …)</li>
 <li>in Rstudio: change the chunk output location setting to “console” (changes yaml header)</li>
 <li>make one single code chunk foldable (folded by default); leave all other chunks as is</li>
@@ -138,21 +139,12 @@ You may also create your own fork (or second copy) where you implement many opti
 <li>elsewehere in the text, add a reference to that figure</li>
 <li>change the date to the rendering time (note why in the commit - there is one particular reason)</li>
 <li>add a table of contents (yaml header option)</li>
-<li>add cross-references between sections using <code>@sec-</code> labels</li>
 <li>set a custom theme or highlight style in the yaml header</li>
-<li>use a meaningful multi-line commit message (subject + body) for a commit</li>
-<li>change some other document setting you like from <a href="https://quarto.org/">quarto.org</a></li>
 <li>add a footnote somewhere in the text</li>
-<li>add an explanation why the code chunks in this particular document should not be cached</li>
 <li>add an image (e.g.&nbsp;a screenshot or the DWD logo) with alt text</li>
-<li>use a blockquote (<code>&gt;</code>) for a fun or relevant quote about weather/data</li>
 <li>set global execution options in the yaml (e.g.&nbsp;<code>warning: false</code>) instead of per-chunk</li>
 <li>add <code>fig-width</code> / <code>fig-height</code> as global defaults in the yaml</li>
-<li>use a tabset (<code>:::{.panel-tabset}</code>) to organise sections or outputs</li>
 <li>add margin content with <code>column: margin</code> on a chunk or text block</li>
-<li>use code annotation (<code># &lt;1&gt;</code> style) to explain a line in a chunk without touching the code logic</li>
-<li>revert a change someone made that you dislike (commit/PR discussion welcome!)</li>
-<li>use a collapsed Quarto callout block for further info (in experiments.qmd)</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -168,10 +160,19 @@ You may also create your own fork (or second copy) where you implement many opti
 <div class="callout-body-container callout-body">
 <p>These suggestions are less applicable to the document at hand or not so interesting for learning the markdown basics</p>
 <ul>
+<li>use a tabset (<code>:::{.panel-tabset}</code>) to organise sections or outputs</li>
+<li>add cross-references between sections using <code>@sec-</code> labels</li>
+<li>use a blockquote (<code>&gt;</code>) for a fun or relevant quote about weather/data</li>
+<li>add an explanation why the code chunks in this particular document should not be cached</li>
+<li>use a meaningful multi-line commit message (subject + body) for a commit</li>
+<li>change some other document setting you like from <a href="https://quarto.org/">quarto.org</a></li>
+<li>revert a change someone made that you dislike (commit/PR discussion welcome!)</li>
 <li>tag a version with <code>git tag</code> after a meaningful milestone</li>
 <li>add a <code>.gitignore</code> entry for irrelevant output folders (e.g.&nbsp;<code>*_cache/</code>)</li>
 <li>enable <code>embed-resources: true</code> so the HTML renders as a single self-contained file</li>
-<li>improve a code chunk with some meaningful adaptation (is not markdown related)</li>
+<li>improve a code chunk with some meaningful adaptation (this is not markdown related)</li>
+<li>use code annotation (<code># &lt;1&gt;</code> style) to explain a line in a chunk without touching the code logic</li>
+<li>use a different style Quarto callout block for important info</li>
 </ul>
 </div>
 </div>
