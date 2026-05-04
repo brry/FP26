@@ -67,7 +67,7 @@ import matplotlib, pandas
 ```{r, packages} 
 if(!requireNamespace("rdwd", quietly=TRUE))
 	install.packages("rdwd")
-rdwd::updateRdwd()
+rdwd::updateRdwd(vignette=FALSE)
 ```
 
 ## Get weather data
