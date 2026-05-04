@@ -16,8 +16,8 @@ This is a markdown / github task in the course [FP26](https://open.hpi.de/course
 
 ## Homework
 
-Implement one of these ideas, following the instructions above.  
-To learn more markdown, create a copy of the file in which you can implement many/all ideas. Each student should have some options available, so don't push those changes.  
+Implement **one** of the ideas below, following the instructions above.  
+To learn more markdown, create a copy of the file (version at course start if wanted) in which you can implement many/all ideas. Each student should have some options available, so don't push those changes. 
 
 - change the date format in the yaml header to include HH:mm after the day (*this one should be implemented early, please*)
 - change this bullet list to checkboxes for ideas that are implemented
@@ -25,13 +25,15 @@ To learn more markdown, create a copy of the file in which you can implement man
 - in Rstudio: change the chunk output location setting to "console" (changes yaml header)
 - make one single code chunk foldable (folded by default); leave all other chunks as is
 - suppress the output of `updateRdwd` with a chunk option
+- add a bit of text with the output of an inline code expression
 - improve the python output to not be split up (with a chunk option)
-- add a `knitr::kable` with a small subset of the dataset
+- add a `knitr::kable` with a small subset of the dataset (with proper package importing)
 - format a plot as actual figures and add labels (chunk options)
 - elsewehere in the text, add a reference to that figure
 - change the date to the rendering time (note why in the commit - there is one particular reason)
 - add a table of contents (yaml header option)
 - set a custom theme or highlight style in the yaml header
+- use the modern chunk option format (at chunk top, not inside {}) for labels + options
 - add a footnote somewhere in the text
 - add an image (e.g. a screenshot or the DWD logo) with alt text
 - set global execution options in the yaml (e.g. `warning: false`) instead of per-chunk
@@ -45,11 +47,12 @@ These suggestions are less applicable to the document at hand or not so interest
 
 - use a tabset (`:::{.panel-tabset}`) to organise sections or outputs
 - add cross-references between sections using `@sec-` labels
+- cite scientific articles referring to a local bibliography file
 - use a blockquote (`>`) for a fun or relevant quote about weather/data
 - add an explanation why the code chunks in this particular document should not be cached
 - use a meaningful multi-line commit message (subject + body) for a commit
 - change some other document setting you like from [quarto.org](https://quarto.org/)
-- revert a change someone made that you dislike (commit/PR discussion welcome!)
+- revert / adapt a change someone made that you dislike (commit/PR discussion welcome!)
 - tag a version with `git tag` after a meaningful milestone
 - add a `.gitignore` entry for irrelevant output folders (e.g. `*_cache/`)
 - enable `embed-resources: true` so the HTML renders as a single self-contained file

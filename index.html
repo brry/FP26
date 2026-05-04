@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Berry Boessenkool;">
-<meta name="dcterms.date" content="2026-03-16">
+<meta name="dcterms.date" content="2026-05-04">
 
 <title>Fundamentals of Programming 2026</title>
 <style>
@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -101,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 16, 2026</p>
+      <p class="date">May 4, 2026</p>
     </div>
   </div>
   
@@ -124,8 +124,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="homework" class="level2">
 <h2 class="anchored" data-anchor-id="homework">Homework</h2>
-<p>Implement one of these ideas, following the instructions above.<br>
-To learn more markdown, create a copy of the file in which you can implement many/all ideas. Each student should have some options available, so don’t push those changes.</p>
+<p>Implement <strong>one</strong> of the ideas below, following the instructions above.<br>
+To learn more markdown, create a copy of the file (version at course start if wanted) in which you can implement many/all ideas. Each student should have some options available, so don’t push those changes.</p>
 <ul>
 <li>change the date format in the yaml header to include HH:mm after the day (<em>this one should be implemented early, please</em>)</li>
 <li>change this bullet list to checkboxes for ideas that are implemented</li>
@@ -133,13 +133,15 @@ To learn more markdown, create a copy of the file in which you can implement man
 <li>in Rstudio: change the chunk output location setting to “console” (changes yaml header)</li>
 <li>make one single code chunk foldable (folded by default); leave all other chunks as is</li>
 <li>suppress the output of <code>updateRdwd</code> with a chunk option</li>
+<li>add a bit of text with the output of an inline code expression</li>
 <li>improve the python output to not be split up (with a chunk option)</li>
-<li>add a <code>knitr::kable</code> with a small subset of the dataset</li>
+<li>add a <code>knitr::kable</code> with a small subset of the dataset (with proper package importing)</li>
 <li>format a plot as actual figures and add labels (chunk options)</li>
 <li>elsewehere in the text, add a reference to that figure</li>
 <li>change the date to the rendering time (note why in the commit - there is one particular reason)</li>
 <li>add a table of contents (yaml header option)</li>
 <li>set a custom theme or highlight style in the yaml header</li>
+<li>use the modern chunk option format (at chunk top, not inside {}) for labels + options</li>
 <li>add a footnote somewhere in the text</li>
 <li>add an image (e.g.&nbsp;a screenshot or the DWD logo) with alt text</li>
 <li>set global execution options in the yaml (e.g.&nbsp;<code>warning: false</code>) instead of per-chunk</li>
@@ -162,11 +164,12 @@ To learn more markdown, create a copy of the file in which you can implement man
 <ul>
 <li>use a tabset (<code>:::{.panel-tabset}</code>) to organise sections or outputs</li>
 <li>add cross-references between sections using <code>@sec-</code> labels</li>
+<li>cite scientific articles referring to a local bibliography file</li>
 <li>use a blockquote (<code>&gt;</code>) for a fun or relevant quote about weather/data</li>
 <li>add an explanation why the code chunks in this particular document should not be cached</li>
 <li>use a meaningful multi-line commit message (subject + body) for a commit</li>
 <li>change some other document setting you like from <a href="https://quarto.org/">quarto.org</a></li>
-<li>revert a change someone made that you dislike (commit/PR discussion welcome!)</li>
+<li>revert / adapt a change someone made that you dislike (commit/PR discussion welcome!)</li>
 <li>tag a version with <code>git tag</code> after a meaningful milestone</li>
 <li>add a <code>.gitignore</code> entry for irrelevant output folders (e.g.&nbsp;<code>*_cache/</code>)</li>
 <li>enable <code>embed-resources: true</code> so the HTML renders as a single self-contained file</li>
@@ -186,9 +189,9 @@ To learn more markdown, create a copy of the file in which you can implement man
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"rdwd"</span>, <span class="at">quietly=</span><span class="cn">TRUE</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"rdwd"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rdwd<span class="sc">::</span><span class="fu">updateRdwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rdwd<span class="sc">::</span><span class="fu">updateRdwd</span>(<span class="at">vignette=</span><span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.8 (2025-12-20)</code></pre>
+<pre><code>rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.12 (2026-03-30)</code></pre>
 </div>
 </div>
 </section>
@@ -243,12 +246,12 @@ To learn more markdown, create a copy of the file in which you can implement man
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(temp_stats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>count    550.000000
-mean       8.856182
-std        7.419554
+mean       8.518545
+std        7.358740
 min       -8.000000
-25%        3.400000
-50%        8.800000
-75%       14.600000
+25%        3.325000
+50%        8.200000
+75%       13.800000
 max       29.200000
 Name: TMK.Lufttemperatur, dtype: float64</code></pre>
 </div>
