@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Berry Boessenkool;">
-<meta name="dcterms.date" content="2026-05-04">
+<meta name="dcterms.date" content="2026-09-23">
 
 <title>Fundamentals of Programming 2026</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -63,15 +66,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
 <script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="index_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -101,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 4, 2026</p>
+      <p class="date">September 23, 2026</p>
     </div>
   </div>
   
@@ -113,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This is a markdown / github task in the course <a href="https://open.hpi.de/courses/hpi-dh-fprog2026">FP26</a>.<br>
+<p>This is a markdown / github task in the course <a href="https://open.hpi.de/learn/hpi-dh-fprog2026">FP26</a> with source code at the <a href="https://github.com/brry/FP26">repo</a>.<br>
 <em>It is fine to not understand the R/Python code at this point - we’ll get to that throughout the course :)</em></p>
 <ul>
 <li>Please first read the i.2 homework slide and follow the <a href="https://github.com/brry/fpsetup#software-installation-guide">installation guide</a>.</li>
@@ -129,6 +131,7 @@ To learn more markdown, create a copy of the file (version at course start if wa
 <ul>
 <li>change the date format in the yaml header to include HH:mm after the day (<em>this one should be implemented early, please</em>)</li>
 <li>change this bullet list to checkboxes for ideas that are implemented</li>
+<li>link “version at course start” to the suitable github file history URL</li>
 <li>add some reasonable markdown code (e.g.&nbsp;strikethrough, link, reference, bold, cursive, …)</li>
 <li>in Rstudio: change the chunk output location setting to “console” (changes yaml header)</li>
 <li>make one single code chunk foldable (folded by default); leave all other chunks as is</li>
@@ -191,7 +194,7 @@ To learn more markdown, create a copy of the file (version at course start if wa
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"rdwd"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rdwd<span class="sc">::</span><span class="fu">updateRdwd</span>(<span class="at">vignette=</span><span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.12 (2026-03-30)</code></pre>
+<pre><code>rdwd is up to date, compared to github.com/brry/rdwd. Version 1.9.17 (2026-07-01)</code></pre>
 </div>
 </div>
 </section>
@@ -246,13 +249,13 @@ To learn more markdown, create a copy of the file (version at course start if wa
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(temp_stats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>count    550.000000
-mean       8.518545
-std        7.358740
+mean      12.266909
+std        7.737786
 min       -8.000000
-25%        3.325000
-50%        8.200000
-75%       13.800000
-max       29.200000
+25%        7.400000
+50%       13.400000
+75%       18.175000
+max       30.000000
 Name: TMK.Lufttemperatur, dtype: float64</code></pre>
 </div>
 </div>

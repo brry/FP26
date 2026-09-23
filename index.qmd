@@ -5,7 +5,8 @@ date: last-modified
 format: html
 ---
 
-This is a markdown / github task in the course [FP26](https://open.hpi.de/courses/hpi-dh-fprog2026).  
+This is a markdown / github task in the course [FP26](https://open.hpi.de/learn/hpi-dh-fprog2026)
+with source code at the [repo](https://github.com/brry/FP26).  
 *It is fine to not understand the R/Python code at this point - we'll get to that throughout the course :)*  
 
 - Please first read the i.2 homework slide and follow the [installation guide](https://github.com/brry/fpsetup#software-installation-guide).
@@ -21,6 +22,7 @@ To learn more markdown, create a copy of the file (version at course start if wa
 
 - change the date format in the yaml header to include HH:mm after the day (*this one should be implemented early, please*)
 - change this bullet list to checkboxes for ideas that are implemented
+- link "version at course start" to the suitable github file history URL
 - add some reasonable markdown code (e.g. strikethrough, link, reference, bold, cursive, ...)
 - in Rstudio: change the chunk output location setting to "console" (changes yaml header)
 - make one single code chunk foldable (folded by default); leave all other chunks as is
