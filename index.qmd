@@ -109,7 +109,7 @@ clim_py.hist(figsize=(20, 16), bins=5)
 
 ## Summary statistics
 
-```{python, temperature_stats}
+```{python, temperature_stats, collape=TRUE}
 # Calculate and display some basic statistics
 print("\n=== Summary Statistics for Temperature ===")
 temp_stats = clim_py['TMK.Lufttemperatur'].describe()
