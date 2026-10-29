@@ -24,7 +24,7 @@ with source code at the [repo](https://github.com/brry/FP26).
 ## Homework
 
 Implement **one** of the ideas below, following the instructions above.  
-To learn more markdown, create a copy of the file ([version at course start](https://github.com/brry/FP26/commits/main/index.qmd) if wanted) in which you can implement many/all ideas. Each student should have some options available, so don't push those changes. 
+To learn more markdown, create a copy of the file ([version at course start](https://github.com/brry/FP26/blob/40183444cc94076d9c0b2559d37a1a9bd45351e8/index.qmd) if wanted) in which you can implement many/all ideas. Each student should have some options available, so don't push those changes. 
 
 - [X] change the date format in the yaml header to include HH:mm after the day (*this one should be implemented early, please*)
 - [x] change this bullet list to checkboxes for ideas that are implemented
