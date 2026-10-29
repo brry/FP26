@@ -46,7 +46,7 @@ To learn more markdown, create a copy of the file ([version at course start](htt
 - [ ] set a custom theme or highlight style in the yaml header
 - [ ] use the modern chunk option format (at chunk top, not inside {}) for labels + options
 - [x] add a footnote somewhere in the text
-- [ ] add an image (e.g. a screenshot or the DWD logo) with alt text
+- [x] add an image (e.g. a screenshot or the DWD logo) with alt text
 - [ ] set global execution options in the yaml (e.g. `warning: false`) instead of per-chunk
 - [x] add `fig-width` / `fig-height` as global defaults in the yaml
 - [x] add margin content with `column: margin` on a chunk or text block
@@ -88,6 +88,8 @@ rdwd::updateRdwd(vignette=FALSE)
 ## Get weather data
 
 download recent weather data using [rdwd](https://brry.github.io/rdwd/)[^dwd]
+
+![Logo of The German Weather Service DWD (= Deutscher Wetterdienstes)](logo_dwd.jpeg){width="150px" fig-align="left"}
 
 [^dwd]: The German Weather Service (DWD) provides free access to weather data. 
 
