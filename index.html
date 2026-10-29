@@ -97,7 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </nav>
 </div>
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2026-10-29 17:47</p>
+      <p class="date">2026-10-29 18:26</p>
     </div>
   </div>
   
@@ -165,7 +165,7 @@ To learn more markdown, create a copy of the file (<a href="https://github.com/b
 <li><label><input type="checkbox">add an image (e.g.&nbsp;a screenshot or the DWD logo) with alt text</label></li>
 <li><label><input type="checkbox">set global execution options in the yaml (e.g.&nbsp;<code>warning: false</code>) instead of per-chunk</label></li>
 <li><label><input type="checkbox" checked="">add <code>fig-width</code> / <code>fig-height</code> as global defaults in the yaml</label></li>
-<li><label><input type="checkbox">add margin content with <code>column: margin</code> on a chunk or text block</label></li>
+<li><label><input type="checkbox" checked="">add margin content with <code>column: margin</code> on a chunk or text block</label></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -211,7 +211,7 @@ To learn more markdown, create a copy of the file (<a href="https://github.com/b
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rdwd<span class="sc">::</span><span class="fu">updateRdwd</span>(<span class="at">vignette=</span><span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="get-weather-data" class="level2">
+<section id="get-weather-data" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="get-weather-data">Get weather data</h2>
 <p>download recent weather data using <a href="https://brry.github.io/rdwd/">rdwd</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell">
@@ -221,7 +221,10 @@ To learn more markdown, create a copy of the file (<a href="https://github.com/b
 </div>
 <p>The dataset covers 550 days with a mean daily temperature of 12 °C.</p>
 <p>Potsdam weather is <del>boring</del> <strong>surprisingly interesting</strong> once you <em>plot</em> it, thanks to open data from the <a href="https://www.dwd.de">DWD</a>.</p>
-</section>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Data source: DWD Climate Data Center.</p>
+</div></div></section>
 <section id="visualise-recent-temperature" class="level2">
 <h2 class="anchored" data-anchor-id="visualise-recent-temperature">Visualise recent temperature</h2>
 <div class="cell">
@@ -270,8 +273,8 @@ To learn more markdown, create a copy of the file (<a href="https://github.com/b
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>count    550.000000
-mean      12.367273
-std        7.712211
+mean      12.365273
+std        7.712865
 min       -8.000000
 25%        7.500000
 50%       13.700000

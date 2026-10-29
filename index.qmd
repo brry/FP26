@@ -47,7 +47,7 @@ To learn more markdown, create a copy of the file ([version at course start](htt
 - [ ] add an image (e.g. a screenshot or the DWD logo) with alt text
 - [ ] set global execution options in the yaml (e.g. `warning: false`) instead of per-chunk
 - [x] add `fig-width` / `fig-height` as global defaults in the yaml
-- [ ] add margin content with `column: margin` on a chunk or text block
+- [x] add margin content with `column: margin` on a chunk or text block
 
 ::: {.callout-tip collapse="true"}
 ## click here for further ideas
@@ -98,6 +98,10 @@ clim <- dataDWD(link, varnames=TRUE, force=24, quiet=TRUE)
 The dataset covers `r nrow(clim)` days with a mean daily temperature of `r round(mean(clim$TMK.Lufttemperatur, na.rm=TRUE))` °C.
 
 Potsdam weather is ~~boring~~ **surprisingly interesting** once you *plot* it, thanks to open data from the [DWD](https://www.dwd.de).
+
+::: {.column-margin}
+Data source: DWD Climate Data Center.
+::: 
 
 ## Visualise recent temperature
 
