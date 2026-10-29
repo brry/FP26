@@ -5,6 +5,7 @@ date: last-modified
 date-format: "YYYY-MM-DD HH:mm"
 format:
   html:
+    theme: cosmo
     toc: true
     fig-width: 7
     fig-height: 5
