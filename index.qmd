@@ -75,7 +75,7 @@ These suggestions are less applicable to the document at hand or not so interest
 import matplotlib, pandas
 ```
 
-```{r, packages} 
+```{r, packages, results="hide"} 
 #| message: false
 if(!requireNamespace("rdwd", quietly=TRUE))
 	install.packages("rdwd")
