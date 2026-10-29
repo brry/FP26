@@ -1,16 +1,19 @@
 ---
 title: "Fundamentals of Programming 2026"
 author: "Berry Boessenkool; "
-date: last-modified
+date: last-modified now
 date-format: "YYYY-MM-DD HH:mm"
 format:
   html:
-    theme: cosmo
+    theme: lumen
     toc: true
+    embed-resources: true
     fig-width: 7
     fig-height: 5
 editor_options: 
   chunk_output_type: console
+execute:
+  warning: false
 ---
 
 This is a markdown / github task in the course [FP26](https://open.hpi.de/learn/hpi-dh-fprog2026)
@@ -28,28 +31,31 @@ with source code at the [repo](https://github.com/brry/FP26).
 Implement **one** of the ideas below, following the instructions above.  
 To learn more markdown, create a copy of the file ([version at course start](https://github.com/brry/FP26/blob/40183444cc94076d9c0b2559d37a1a9bd45351e8/index.qmd) if wanted) in which you can implement many/all ideas. Each student should have some options available, so don't push those changes. 
 
+::: {.callout-tip collapse="true"}
+## Completed ideas
 - [X] change the date format in the yaml header to include HH:mm after the day (*this one should be implemented early, please*)
 - [x] change this bullet list to checkboxes for ideas that are implemented
 - [x] link "version at course start" to the suitable github file history URL
 - [x] add some reasonable markdown code (e.g. strikethrough, link, reference, bold, cursive, ...)
-- [ ] in Rstudio: change the chunk output location setting to "console" (changes yaml header)
+- [x] in Rstudio: change the chunk output location setting to "console" (changes yaml header)
 - [x] make one single code chunk foldable (folded by default); leave all other chunks as is
 - [x] suppress the output of `updateRdwd` with a chunk option
-- [X] add a bit of text with the output of an inline code expression
-- [ ] improve the python output to not be split up but appear after all code (with a chunk option)
-- [ ] move done tasks to a nicely named collapsed section to declutter this overview
-- [ ] add a `knitr::kable` with a small subset of the dataset (with proper package importing)
-- [ ] format a plot as actual figures and add labels (chunk options)
-- [ ] elsewehere in the text, add a reference to that figure
-- [ ] change the date to the rendering time (note why in the commit - there is one particular reason)
+- [x] add a bit of text with the output of an inline code expression
+- [x] improve the python output to not be split up but appear after all code (with a chunk option)
+- [x] move done tasks to a nicely named collapsed section to declutter this overview
+- [x] add a `knitr::kable` with a small subset of the dataset (with proper package importing)
+- [x] format a plot as actual figures and add labels (chunk options)
+- [x] elsewehere in the text, add a reference to that figure
+- [x] change the date to the rendering time (note why in the commit - there is one particular reason)
 - [x] add a table of contents (yaml header option)
-- [ ] set a custom theme or highlight style in the yaml header
-- [ ] use the modern chunk option format (at chunk top, not inside {}) for labels + options
+- [x] set a custom theme or highlight style in the yaml header
+- [x] use the modern chunk option format (at chunk top, not inside {}) for labels + options
 - [x] add a footnote somewhere in the text
 - [x] add an image (e.g. a screenshot or the DWD logo) with alt text
-- [ ] set global execution options in the yaml (e.g. `warning: false`) instead of per-chunk
+- [x] set global execution options in the yaml (e.g. `warning: false`) instead of per-chunk
 - [x] add `fig-width` / `fig-height` as global defaults in the yaml
 - [x] add margin content with `column: margin` on a chunk or text block
+:::
 
 ::: {.callout-tip collapse="true"}
 ## click here for further ideas
@@ -65,15 +71,22 @@ These suggestions are less applicable to the document at hand or not so interest
 - [ ] change some other document setting you like from [quarto.org](https://quarto.org/)
 - [ ] revert / adapt a change someone made that you dislike (commit/PR discussion welcome!)
 - [ ] tag a version with `git tag` after a meaningful milestone
-- [ ] add a `.gitignore` entry for irrelevant output folders (e.g. `*_cache/`)
-- [ ] enable `embed-resources: true` so the HTML renders as a single self-contained file
+- [x] add a `.gitignore` entry for irrelevant output folders (e.g. `*_cache/`)
+- [x] enable `embed-resources: true` so the HTML renders as a single self-contained file
 - [ ] improve a code chunk with some meaningful adaptation (this is not markdown related)
 - [ ] use code annotation (`# <1>` style) to explain a line in a chunk without touching the code logic
 - [ ] use a different style Quarto callout block for important info
 :::
 
-## Check package availability
+## Version at the Course start
+[version at course start](https://github.com/brry/FP26/commits/main/index.qmd)
 
+```{r}
+#| include: false
+reticulate::py_require(c("matplotlib", "pandas"))
+```
+
+## Check package availability
 ```{python, modules}
 import matplotlib, pandas
 ```
@@ -93,12 +106,20 @@ download recent weather data using [rdwd](https://brry.github.io/rdwd/)[^dwd]
 
 [^dwd]: The German Weather Service (DWD) provides free access to weather data. 
 
-```{r, get_weather_data}
+```{r}
+#| label: get_weather_data
 library(rdwd)
 link <- selectDWD("Potsdam", res="daily", var="kl", per="recent")
 clim <- dataDWD(link, varnames=TRUE, force=24, quiet=TRUE)
 ```
 
+```{r}
+#| label: climate_table
+knitr::kable(
+  head(clim[, c("MESS_DATUM", "TMK.Lufttemperatur")], 5),
+  caption = "First five rows of Potsdam weather data"
+)
+```
 The dataset covers `r nrow(clim)` days with a mean daily temperature of `r round(mean(clim$TMK.Lufttemperatur, na.rm=TRUE))` °C.
 
 Potsdam weather is ~~boring~~ **surprisingly interesting** once you *plot* it, thanks to open data from the [DWD](https://www.dwd.de).
@@ -106,16 +127,29 @@ Potsdam weather is ~~boring~~ **surprisingly interesting** once you *plot* it, t
 ::: {.column-margin}
 Data source: DWD Climate Data Center.
 ::: 
+![Logo of the German Weather Service (DWD)](dwd-logo.png)
 
 ## Visualise recent temperature
 
-```{r, plot_clim}
+```{r}
+#| label: fig-temperature
+#| fig-cap: "Recent daily temperature in Potsdam"
+#| fig-alt: "Plot of recent daily temperatures in Potsdam"
 plotDWD(clim, "TMK.Lufttemperatur", main=range(clim$MESS_DATUM))
+```
+
+The recent temperature pattern is shown in @fig-temperature.
+
+```{r}
+#| include: false
+reticulate::py_require(c("matplotlib", "pandas"))
 ```
 
 ## Transfer to Python
 
-```{python, histograms, results="hide"}
+```{python}
+#| label: histograms
+#| results: hold
 clim_py = r.clim
 print(f"Dataset shape: {clim_py.shape[0]} rows, {clim_py.shape[1]} columns")
 clim_py = clim_py.select_dtypes(include=['float64', 'int64'])
@@ -124,7 +158,8 @@ clim_py.hist(figsize=(20, 16), bins=5)
 
 ## Summary statistics
 
-```{python, temperature_stats}
+```{python}
+#| label: temperature_stats
 #| code-fold: true
 #| code-summary: "Show summary statistics code"
 # Calculate and display some basic statistics
