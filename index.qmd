@@ -66,10 +66,16 @@ These suggestions are less applicable to the document at hand or not so interest
 - [ ] revert / adapt a change someone made that you dislike (commit/PR discussion welcome!)
 - [ ] tag a version with `git tag` after a meaningful milestone
 - [ ] add a `.gitignore` entry for irrelevant output folders (e.g. `*_cache/`)
-- [ ] enable `embed-resources: true` so the HTML renders as a single self-contained file
 - [ ] improve a code chunk with some meaningful adaptation (this is not markdown related)
 - [ ] use code annotation (`# <1>` style) to explain a line in a chunk without touching the code logic
 - [ ] use a different style Quarto callout block for important info
+
+Don't set `embed-resources: true` to make the HTML render as a single self-contained file.
+While that can be handy in real life, I want to see in your commit which files changed.
+
+- Pro: one file, easy to commit or email.
+- Con: images and libs are baked into one big HTML, so you can't see *which* figure changed, diffs are unreadable, and the repo grows with every re-render.
+
 :::
 
 ## Check package availability
