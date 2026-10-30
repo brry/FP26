@@ -95,7 +95,7 @@ rdwd::updateRdwd(vignette=FALSE)
 
 download recent weather data using [rdwd](https://brry.github.io/rdwd/)[^dwd]
 
-![Logo of The German Weather Service DWD (= Deutscher Wetterdienstes)](logo_dwd.jpeg){width="150px" fig-align="left"}
+![Logo of The German Weather Service DWD (= Deutscher Wetterdienstes)](logo_dwd.jpeg){width="65px" fig-align="left"}
 
 [^dwd]: The German Weather Service (DWD) provides free access to weather data. 
 
