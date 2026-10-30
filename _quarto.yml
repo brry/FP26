@@ -1,0 +1,6 @@
+project:
+  # Render only index.qmd (not e.g. README.md)
+  render:
+    - index.qmd
+  # Runs before every render, see clean_libs.R
+  pre-render: clean_libs.R
