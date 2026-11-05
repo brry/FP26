@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.0">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -67,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-0ed29b1f0e6f007c337b74d6a5232f88.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-a74871fe4945b66d259aafc266475145.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2026-11-02 13:40</p>
+      <p class="date">2026-11-05 09:56</p>
     </div>
   </div>
   
@@ -147,7 +147,7 @@ To learn more markdown, create a copy of the file (<a href="https://github.com/b
 <li><label><input type="checkbox" checked="">make one single code chunk foldable (folded by default); leave all other chunks as is</label></li>
 <li><label><input type="checkbox" checked="">suppress the output of <code>updateRdwd</code> with a chunk option</label></li>
 <li><label><input type="checkbox" checked="">add a bit of text with the output of an inline code expression</label></li>
-<li><label><input type="checkbox">improve the python output to not be split up but appear after all code (with a chunk option)</label></li>
+<li><label><input type="checkbox" checked="">improve the python output to not be split up but appear after all code (with a chunk option)</label></li>
 <li><label><input type="checkbox">move done tasks to a nicely named collapsed section to declutter this overview</label></li>
 <li><label><input type="checkbox">add a <code>knitr::kable</code> with a small subset of the dataset (with proper package importing)</label></li>
 <li><label><input type="checkbox">format a plot as actual figures and add labels (chunk options)</label></li>
@@ -265,25 +265,20 @@ To learn more markdown, create a copy of the file (<a href="https://github.com/b
 <details class="code-fold">
 <summary>Show summary statistics code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and display some basic statistics</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== Summary Statistics for Temperature ==="</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== Summary Statistics for Temperature ==="</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>temp_stats <span class="op">=</span> clim_py[<span class="st">'TMK.Lufttemperatur'</span>].describe()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(temp_stats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-=== Summary Statistics for Temperature ===</code></pre>
-</div>
-<details class="code-fold">
-<summary>Show summary statistics code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>temp_stats <span class="op">=</span> clim_py[<span class="st">'TMK.Lufttemperatur'</span>].describe()</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(temp_stats)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>count    550.000000
-mean      12.318000
-std        7.719409
+=== Summary Statistics for Temperature ===
+count    550.000000
+mean      12.273273
+std        7.718046
 min       -8.000000
-25%        7.500000
-50%       13.650000
-75%       18.100000
+25%        7.400000
+50%       13.350000
+75%       18.075000
 max       30.000000
 Name: TMK.Lufttemperatur, dtype: float64</code></pre>
 </div>
